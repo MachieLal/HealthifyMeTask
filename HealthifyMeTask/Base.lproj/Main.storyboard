@@ -70,9 +70,45 @@
                                                     <outlet property="delegate" destination="Crw-39-wif" id="f6q-Ln-2Ah"/>
                                                 </connections>
                                             </collectionView>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDR-6W-l9X">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="I7u-7x-dfu">
                                                 <rect key="frame" x="0.0" y="150" width="375" height="200"/>
-                                            </scrollView>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qIQ-AG-SCW">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MiddleContainerCells" id="3YI-hp-UlL" customClass="MiddleCollectionViewCell" customModule="HealthifyMeTask" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cjl-RA-Adu">
+                                                                    <rect key="frame" x="8" y="8" width="34" height="34"/>
+                                                                    <color key="backgroundColor" red="0.99312284302740728" green="1" blue="0.82584117766375842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </view>
+                                                        <constraints>
+                                                            <constraint firstItem="Cjl-RA-Adu" firstAttribute="leading" secondItem="3YI-hp-UlL" secondAttribute="leadingMargin" id="NjD-DB-oP1"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="Cjl-RA-Adu" secondAttribute="bottom" id="VK0-dv-ccK"/>
+                                                            <constraint firstItem="Cjl-RA-Adu" firstAttribute="top" secondItem="3YI-hp-UlL" secondAttribute="topMargin" id="fQD-uK-Yam"/>
+                                                            <constraint firstAttribute="trailingMargin" secondItem="Cjl-RA-Adu" secondAttribute="trailing" id="vLd-Mj-9De"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="middleImageView" destination="Cjl-RA-Adu" id="JwP-Ne-N1a"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="Crw-39-wif" id="o9l-Nb-p1n"/>
+                                                    <outlet property="delegate" destination="Crw-39-wif" id="128-J9-AtA"/>
+                                                </connections>
+                                            </collectionView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BottomImage" translatesAutoresizingMaskIntoConstraints="NO" id="Gka-M1-CK0">
                                                 <rect key="frame" x="0.0" y="370" width="375" height="654"/>
                                                 <color key="backgroundColor" red="1" green="0.51574930421538623" blue="0.49946541191473692" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,15 +117,15 @@
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Gka-M1-CK0" secondAttribute="trailing" id="7Tx-ie-uIj"/>
+                                            <constraint firstItem="I7u-7x-dfu" firstAttribute="leading" secondItem="8UB-ys-XjK" secondAttribute="leading" id="A3m-WE-r6m"/>
                                             <constraint firstItem="Fdy-zf-N1e" firstAttribute="top" secondItem="8UB-ys-XjK" secondAttribute="top" id="G6S-qY-ob1"/>
                                             <constraint firstAttribute="trailing" secondItem="Fdy-zf-N1e" secondAttribute="trailing" id="Mjn-xT-C52"/>
-                                            <constraint firstAttribute="trailing" secondItem="LDR-6W-l9X" secondAttribute="trailing" id="NhD-BO-MuH"/>
+                                            <constraint firstItem="Gka-M1-CK0" firstAttribute="top" secondItem="I7u-7x-dfu" secondAttribute="bottom" constant="20" id="N8U-Ji-MIs"/>
                                             <constraint firstItem="Gka-M1-CK0" firstAttribute="leading" secondItem="8UB-ys-XjK" secondAttribute="leading" id="SgP-vL-BsJ"/>
-                                            <constraint firstItem="LDR-6W-l9X" firstAttribute="leading" secondItem="8UB-ys-XjK" secondAttribute="leading" id="YLZ-d1-Ep6"/>
                                             <constraint firstAttribute="bottom" secondItem="Gka-M1-CK0" secondAttribute="bottom" id="YYM-Xf-AgJ"/>
-                                            <constraint firstItem="LDR-6W-l9X" firstAttribute="top" secondItem="Fdy-zf-N1e" secondAttribute="bottom" constant="20" id="cee-HZ-QvN"/>
                                             <constraint firstAttribute="height" priority="990" constant="1024" id="eEL-fV-Alj"/>
-                                            <constraint firstItem="Gka-M1-CK0" firstAttribute="top" secondItem="LDR-6W-l9X" secondAttribute="bottom" constant="20" id="tSp-66-bfd"/>
+                                            <constraint firstItem="I7u-7x-dfu" firstAttribute="top" secondItem="Fdy-zf-N1e" secondAttribute="bottom" constant="20" id="g2n-9B-rG5"/>
+                                            <constraint firstAttribute="trailing" secondItem="I7u-7x-dfu" secondAttribute="trailing" id="kTA-EJ-Ujv"/>
                                             <constraint firstItem="Fdy-zf-N1e" firstAttribute="leading" secondItem="8UB-ys-XjK" secondAttribute="leading" id="z5z-p1-SnV"/>
                                         </constraints>
                                     </view>
@@ -106,13 +142,14 @@
                         <color key="backgroundColor" red="0.32643087084767841" green="0.43613657697716512" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PpY-IJ-VTu" firstAttribute="leading" secondItem="xNh-au-Bpr" secondAttribute="leading" id="EBl-bB-ZkT"/>
-                            <constraint firstItem="LDR-6W-l9X" firstAttribute="height" secondItem="xNh-au-Bpr" secondAttribute="height" multiplier="0.3" id="SRk-Vu-aOF"/>
                             <constraint firstAttribute="trailing" secondItem="PpY-IJ-VTu" secondAttribute="trailing" id="a0I-7q-igk"/>
                             <constraint firstItem="Irh-yG-I5V" firstAttribute="top" secondItem="PpY-IJ-VTu" secondAttribute="bottom" id="j3U-Qe-9he"/>
                             <constraint firstItem="PpY-IJ-VTu" firstAttribute="top" secondItem="3Y8-KN-Gqo" secondAttribute="bottom" id="nZa-Br-qFJ"/>
+                            <constraint firstItem="I7u-7x-dfu" firstAttribute="height" secondItem="xNh-au-Bpr" secondAttribute="height" multiplier="0.3" id="qWz-fe-htI"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="middleCollectionVC" destination="I7u-7x-dfu" id="9ka-yz-fMe"/>
                         <outlet property="scrollContentViewHeight" destination="eEL-fV-Alj" id="jR1-9d-Wne"/>
                         <outlet property="topCollectionVC" destination="Fdy-zf-N1e" id="Drs-fn-ygI"/>
                         <outlet property="topCollectionViewHeight" destination="0Il-Qb-8I9" id="Apo-Z9-qn4"/>

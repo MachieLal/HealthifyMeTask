@@ -13,10 +13,10 @@ class ViewController: UIViewController {
     fileprivate let reuseIdentifierMiddle = "MiddleContainerCells"
 
     fileprivate let columnsCount: CGFloat = 4
-    fileprivate let topCollectionViewSectionInsets = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
-    fileprivate let middleCollectionViewSectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    fileprivate let topCollectionViewSectionInsets = UIEdgeInsets(top: 5, left: 1, bottom: 5, right: 1)
+    fileprivate let middleCollectionViewSectionInsets = UIEdgeInsets(top: 2, left: 1, bottom: 2, right: 1)
 
-    fileprivate let filesCount = 6
+    fileprivate let filesCount = 10
     fileprivate let indexConstant = 3
     fileprivate var toggle = false
     fileprivate let moreDropDownImage = UIImage.init(named: "moreDropDown")
@@ -61,10 +61,10 @@ class ViewController: UIViewController {
     func calculatedTopCollectionWidthPerItem() -> CGFloat {
         let columnsCount = self.columnsCount
         let paddingSpace = self.topCollectionViewSectionInsets.left * (columnsCount + 1)
-        let availableWidth = self.view.frame.width - paddingSpace
-        return availableWidth / columnsCount
+        let availableWidth = self.view.bounds.width - paddingSpace
+        let requiredWidth = availableWidth / columnsCount
+        return requiredWidth
     }
-
     
     func calculatedTopViewHeightHigh() -> CGFloat {
         let columnsCount = Int(self.columnsCount)
@@ -92,7 +92,7 @@ extension ViewController : UICollectionViewDataSource {
         if collectionView == topCollectionVC {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierTop, for: indexPath) as? TopCollectionViewCell
             if indexPath.row == indexConstant {
-                cell?.topImageView?.image = toggle ? moreDropDownImage : lessDropDownImage
+                cell?.topImageView?.image = toggle ? lessDropDownImage : moreDropDownImage
             } else  {
                 cell?.topImageView?.image = imageForIndexPath(indexPath)
             }
@@ -152,7 +152,6 @@ extension ViewController:UIScrollViewDelegate{
         }
         let fullyScrolledContentOffset:CGFloat = middleCollectionVC!.frame.size.width * CGFloat(imagesArray.count - 1)
         if (scrollView.contentOffset.x >= fullyScrolledContentOffset) {
-            
             if imagesArray.count>2{
                 reverseImagesArray(imagesArray, startIndex: 0, endIndex: imagesArray.count - 1)
                 reverseImagesArray(imagesArray, startIndex: 0, endIndex: 1)

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     fileprivate let topCollectionViewSectionInsets = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
     fileprivate let middleCollectionViewSectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 
-    fileprivate let filesCount = 11
+    fileprivate let filesCount = 6
     fileprivate let indexConstant = 3
     fileprivate var toggle = false
     fileprivate let moreDropDownImage = UIImage.init(named: "moreDropDown")
@@ -27,30 +27,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var topCollectionVC: UICollectionView?
     @IBOutlet weak var middleCollectionVC: UICollectionView?
 
-    @IBOutlet weak var middleCollectionViewHeight: NSLayoutConstraint!
-
     @IBOutlet weak var topCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var scrollContentViewHeight: NSLayoutConstraint!
-
-
-    lazy var widthPerItem : CGFloat = {
-        let columnsCount = self.columnsCount
-        let paddingSpace = self.topCollectionViewSectionInsets.left * (columnsCount + 1)
-        let availableWidth = self.view.frame.width - paddingSpace
-        return availableWidth / columnsCount
-    }()
-    
-    lazy var topViewHeightHigh : CGFloat = {
-        let columnsCount = Int(self.columnsCount)
-        let offset = (self.filesCount % columnsCount) == 0 ? 0 : 1
-        var rowsCount = self.filesCount / columnsCount + offset
-        if (rowsCount == 0) { rowsCount = 1 }
-        return self.topCollectionViewSectionInsets.top + (self.widthPerItem + self.topCollectionViewSectionInsets.left) * CGFloat(rowsCount) + self.topCollectionViewSectionInsets.bottom
-    }()
-    
-    lazy var topViewHeightLow : CGFloat = {
-        return self.widthPerItem + self.topCollectionViewSectionInsets.top + self.topCollectionViewSectionInsets.left
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +41,7 @@ class ViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
             self.topCollectionVC?.collectionViewLayout.invalidateLayout()
+            self.middleCollectionVC?.collectionViewLayout.invalidateLayout()
         }, completion: nil)
         super.viewWillTransition(to: size, with: coordinator)
     }
@@ -71,7 +50,6 @@ class ViewController: UIViewController {
         return imagesArray[indexPath.row]
     }
     
-    
     func reverseImagesArray(_ imageArray:[UIImage], startIndex:Int, endIndex:Int){
         if startIndex >= endIndex{
             return
@@ -79,7 +57,26 @@ class ViewController: UIViewController {
         swap(&imagesArray[startIndex], &imagesArray[endIndex])
         reverseImagesArray(imagesArray, startIndex: startIndex + 1, endIndex: endIndex - 1)
     }
+    
+    func calculatedTopCollectionWidthPerItem() -> CGFloat {
+        let columnsCount = self.columnsCount
+        let paddingSpace = self.topCollectionViewSectionInsets.left * (columnsCount + 1)
+        let availableWidth = self.view.frame.width - paddingSpace
+        return availableWidth / columnsCount
+    }
 
+    
+    func calculatedTopViewHeightHigh() -> CGFloat {
+        let columnsCount = Int(self.columnsCount)
+        let offset = (filesCount % columnsCount) == 0 ? 0 : 1
+        var rowsCount = filesCount / columnsCount + offset
+        if (rowsCount == 0) { rowsCount = 1 }
+        return self.topCollectionViewSectionInsets.top + (calculatedTopCollectionWidthPerItem() + self.topCollectionViewSectionInsets.left) * CGFloat(rowsCount) + topCollectionViewSectionInsets.bottom
+    }
+
+    func calculatedTopViewHeightLow() -> CGFloat {
+        return calculatedTopCollectionWidthPerItem() + self.topCollectionViewSectionInsets.top + self.topCollectionViewSectionInsets.left
+    }
 }
 
 extension ViewController : UICollectionViewDataSource {
@@ -112,11 +109,11 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if (collectionView == topCollectionVC) {
             let heightConstant = scrollContentViewHeight.constant - topCollectionViewHeight.constant
-            topCollectionViewHeight.constant = toggle ? topViewHeightHigh : topViewHeightLow
+            topCollectionViewHeight.constant = toggle ? calculatedTopViewHeightHigh() : calculatedTopViewHeightLow()
             scrollContentViewHeight.constant = heightConstant + topCollectionViewHeight.constant
-            return CGSize(width: widthPerItem, height: widthPerItem)
+            return CGSize(width: calculatedTopCollectionWidthPerItem(), height: calculatedTopCollectionWidthPerItem())
         } else {
-            return CGSize(width: self.view.bounds.width, height: self.view.bounds.height * 0.3)
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height - middleCollectionViewSectionInsets.top - middleCollectionViewSectionInsets.bottom)
         }
     }
     
@@ -138,13 +135,11 @@ extension ViewController : UICollectionViewDelegate {
         if (collectionView == topCollectionVC) {
             if indexPath.row == indexConstant {
                 let heightConstant = scrollContentViewHeight.constant - topCollectionViewHeight.constant
-                topCollectionViewHeight.constant = toggle ? topViewHeightHigh : topViewHeightLow
+                topCollectionViewHeight.constant = toggle ? calculatedTopViewHeightHigh() : calculatedTopViewHeightLow()
                 scrollContentViewHeight.constant = heightConstant + topCollectionViewHeight.constant
                 toggle = !toggle
                 collectionView.reloadData()
             }
-        } else if (collectionView == middleCollectionVC) {
-            
         }
         return
     }

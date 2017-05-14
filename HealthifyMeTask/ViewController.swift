@@ -13,8 +13,7 @@ class ViewController: UIViewController {
     fileprivate let reuseIdentifierMiddle = "MiddleContainerCells"
 
     fileprivate let columnsCount: CGFloat = 4
-    fileprivate let topCollectionViewSectionInsets = UIEdgeInsets(top: 5, left: 1, bottom: 5, right: 1)
-    fileprivate let middleCollectionViewSectionInsets = UIEdgeInsets(top: 2, left: 1, bottom: 2, right: 1)
+    fileprivate let collectionViewSectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 
     fileprivate let filesCount = 10
     fileprivate let indexConstant = 3
@@ -60,7 +59,7 @@ class ViewController: UIViewController {
     
     func calculatedTopCollectionWidthPerItem() -> CGFloat {
         let columnsCount = self.columnsCount
-        let paddingSpace = self.topCollectionViewSectionInsets.left * (columnsCount + 1)
+        let paddingSpace = self.collectionViewSectionInsets.left * (columnsCount + 1)
         let availableWidth = self.view.bounds.width - paddingSpace
         let requiredWidth = availableWidth / columnsCount
         return requiredWidth
@@ -71,11 +70,11 @@ class ViewController: UIViewController {
         let offset = (filesCount % columnsCount) == 0 ? 0 : 1
         var rowsCount = filesCount / columnsCount + offset
         if (rowsCount == 0) { rowsCount = 1 }
-        return self.topCollectionViewSectionInsets.top + (calculatedTopCollectionWidthPerItem() + self.topCollectionViewSectionInsets.left) * CGFloat(rowsCount) + topCollectionViewSectionInsets.bottom
+        return self.collectionViewSectionInsets.top + (calculatedTopCollectionWidthPerItem() + self.collectionViewSectionInsets.left) * CGFloat(rowsCount) + collectionViewSectionInsets.bottom
     }
 
     func calculatedTopViewHeightLow() -> CGFloat {
-        return calculatedTopCollectionWidthPerItem() + self.topCollectionViewSectionInsets.top + self.topCollectionViewSectionInsets.left
+        return calculatedTopCollectionWidthPerItem() + self.collectionViewSectionInsets.top + self.collectionViewSectionInsets.left
     }
 }
 
@@ -113,16 +112,12 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             scrollContentViewHeight.constant = heightConstant + topCollectionViewHeight.constant
             return CGSize(width: calculatedTopCollectionWidthPerItem(), height: calculatedTopCollectionWidthPerItem())
         } else {
-            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height - middleCollectionViewSectionInsets.top - middleCollectionViewSectionInsets.bottom)
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height - collectionViewSectionInsets.top - collectionViewSectionInsets.bottom)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if (collectionView == topCollectionVC) {
-            return topCollectionViewSectionInsets
-        } else {
-            return middleCollectionViewSectionInsets
-        }
+        return collectionViewSectionInsets
     }
 }
 

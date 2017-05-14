@@ -146,18 +146,13 @@ extension ViewController : UICollectionViewDelegate {
 }
 
 extension ViewController:UIScrollViewDelegate{
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if (middleCollectionVC != scrollView) {
-            print("LAL::: galau")
             return
         }
-        // Calculate where the collection view should be at the right-hand end item
         let fullyScrolledContentOffset:CGFloat = middleCollectionVC!.frame.size.width * CGFloat(imagesArray.count - 1)
         if (scrollView.contentOffset.x >= fullyScrolledContentOffset) {
             
-            // user is scrolling to the right from the last item to the 'fake' item 1.
-            // reposition offset to show the 'real' item 1 at the left-hand end of the collection view
             if imagesArray.count>2{
                 reverseImagesArray(imagesArray, startIndex: 0, endIndex: imagesArray.count - 1)
                 reverseImagesArray(imagesArray, startIndex: 0, endIndex: 1)

@@ -10,10 +10,11 @@
 		823AA98E1EC2287A00F1DD32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823AA98D1EC2287A00F1DD32 /* AppDelegate.swift */; };
 		823AA9901EC2287A00F1DD32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823AA98F1EC2287A00F1DD32 /* ViewController.swift */; };
 		823AA9931EC2287A00F1DD32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 823AA9911EC2287A00F1DD32 /* Main.storyboard */; };
-		823AA9951EC2287A00F1DD32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 823AA9941EC2287A00F1DD32 /* Assets.xcassets */; };
+		823AA9951EC2287A00F1DD32 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 823AA9941EC2287A00F1DD32 /* Image.xcassets */; };
 		823AA9981EC2287A00F1DD32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 823AA9961EC2287A00F1DD32 /* LaunchScreen.storyboard */; };
 		823AA9A31EC2287A00F1DD32 /* HealthifyMeTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823AA9A21EC2287A00F1DD32 /* HealthifyMeTaskTests.swift */; };
 		823AA9AE1EC2287A00F1DD32 /* HealthifyMeTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823AA9AD1EC2287A00F1DD32 /* HealthifyMeTaskUITests.swift */; };
+		82F8169E1EC6B60600F52359 /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8169D1EC6B60600F52359 /* TopCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,7 @@
 		823AA98D1EC2287A00F1DD32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		823AA98F1EC2287A00F1DD32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		823AA9921EC2287A00F1DD32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		823AA9941EC2287A00F1DD32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		823AA9941EC2287A00F1DD32 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		823AA9971EC2287A00F1DD32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		823AA9991EC2287A00F1DD32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		823AA99E1EC2287A00F1DD32 /* HealthifyMeTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthifyMeTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +48,7 @@
 		823AA9A91EC2287A00F1DD32 /* HealthifyMeTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthifyMeTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		823AA9AD1EC2287A00F1DD32 /* HealthifyMeTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthifyMeTaskUITests.swift; sourceTree = "<group>"; };
 		823AA9AF1EC2287A00F1DD32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82F8169D1EC6B60600F52359 /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +99,11 @@
 		823AA98C1EC2287A00F1DD32 /* HealthifyMeTask */ = {
 			isa = PBXGroup;
 			children = (
+				82F8169D1EC6B60600F52359 /* TopCollectionViewCell.swift */,
 				823AA98D1EC2287A00F1DD32 /* AppDelegate.swift */,
 				823AA98F1EC2287A00F1DD32 /* ViewController.swift */,
 				823AA9911EC2287A00F1DD32 /* Main.storyboard */,
-				823AA9941EC2287A00F1DD32 /* Assets.xcassets */,
+				823AA9941EC2287A00F1DD32 /* Image.xcassets */,
 				823AA9961EC2287A00F1DD32 /* LaunchScreen.storyboard */,
 				823AA9991EC2287A00F1DD32 /* Info.plist */,
 			);
@@ -233,7 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				823AA9981EC2287A00F1DD32 /* LaunchScreen.storyboard in Resources */,
-				823AA9951EC2287A00F1DD32 /* Assets.xcassets in Resources */,
+				823AA9951EC2287A00F1DD32 /* Image.xcassets in Resources */,
 				823AA9931EC2287A00F1DD32 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				823AA9901EC2287A00F1DD32 /* ViewController.swift in Sources */,
+				82F8169E1EC6B60600F52359 /* TopCollectionViewCell.swift in Sources */,
 				823AA98E1EC2287A00F1DD32 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,7 +415,7 @@
 		823AA9B31EC2287A00F1DD32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = HealthifyMeTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SP.HealthifyMeTask;
@@ -423,7 +427,7 @@
 		823AA9B41EC2287A00F1DD32 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = HealthifyMeTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SP.HealthifyMeTask;
@@ -505,6 +509,7 @@
 				823AA9B41EC2287A00F1DD32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		823AA9B51EC2287A00F1DD32 /* Build configuration list for PBXNativeTarget "HealthifyMeTaskTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				823AA9B71EC2287A00F1DD32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		823AA9B81EC2287A00F1DD32 /* Build configuration list for PBXNativeTarget "HealthifyMeTaskUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +527,7 @@
 				823AA9BA1EC2287A00F1DD32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

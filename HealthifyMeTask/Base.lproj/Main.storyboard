@@ -23,8 +23,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="scaleToFill" barStyle="black" searchBarStyle="prominent" placeholder="Search for products or stores " translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZJ-1t-gtt">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.32421875" green="0.32421875" blue="0.32421875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpY-IJ-VTu">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8UB-ys-XjK">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="720"/>
@@ -148,11 +154,15 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HZJ-1t-gtt" secondAttribute="trailing" id="9nS-c6-H0I"/>
                             <constraint firstItem="PpY-IJ-VTu" firstAttribute="leading" secondItem="xNh-au-Bpr" secondAttribute="leading" id="EBl-bB-ZkT"/>
+                            <constraint firstItem="HZJ-1t-gtt" firstAttribute="leading" secondItem="xNh-au-Bpr" secondAttribute="leading" id="Hop-2s-ejA"/>
                             <constraint firstAttribute="trailing" secondItem="PpY-IJ-VTu" secondAttribute="trailing" id="a0I-7q-igk"/>
+                            <constraint firstItem="HZJ-1t-gtt" firstAttribute="top" secondItem="3Y8-KN-Gqo" secondAttribute="bottom" id="gHN-bN-adk"/>
                             <constraint firstItem="Irh-yG-I5V" firstAttribute="top" secondItem="PpY-IJ-VTu" secondAttribute="bottom" id="j3U-Qe-9he"/>
-                            <constraint firstItem="PpY-IJ-VTu" firstAttribute="top" secondItem="3Y8-KN-Gqo" secondAttribute="bottom" id="nZa-Br-qFJ"/>
+                            <constraint firstItem="PpY-IJ-VTu" firstAttribute="top" secondItem="HZJ-1t-gtt" secondAttribute="bottom" id="pvW-4w-RZt"/>
                             <constraint firstItem="I7u-7x-dfu" firstAttribute="height" secondItem="xNh-au-Bpr" secondAttribute="height" multiplier="0.4" id="qWz-fe-htI"/>
                         </constraints>
                     </view>
